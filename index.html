@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Evolución histórica de las computadoras y el software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#270116;
+    --bg-panel:#0b111d;
+    --bg-panel-2:#160e20;
+    --rail:#26314A;
+    --amber:#a5da22;
+    --amber-glow:#F0AE5C;
+    --teal:#29cfa9;
+    --ink:#ECE7DA;
+    --ink-dim:#93A0B8;
+    --ink-faint:#5A6478;
+    --danger:#b7210a;
+    --radius-card: 3px;
+    --serif: 'Literata', Georgia, serif;
+    --mono: 'Space Mono', 'Courier New', monospace;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:inherit;}
+  html{scroll-padding-top: env(safe-area-inset-top, 0px);}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--serif);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,142,59,0.07), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(95,179,160,0.06), transparent 45%);
+    background-attachment: fixed;
+  }
+  ::selection{ background:var(--amber); color:#160E06; }
+  a{ color: var(--amber-glow); }
+
+  /* ---------- layout shell ---------- */
+  #app{ max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top{
+    padding-bottom:18px;
+    border-bottom:1px solid var(--rail);
+    margin-bottom: 22px;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--teal);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size: clamp(1.6rem, 4.4vw, 2.5rem);
+    line-height:1.15;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  h1 em{ font-style:italic; color:var(--amber-glow); }
+  .subtitle{
+    color:var(--ink-dim);
+    font-size:0.98rem;
+    max-width:60ch;
+    margin:0 0 18px;
+  }
+  .tour-btn{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    background:transparent;
+    border:1px solid var(--amber);
+    color:var(--amber-glow);
+    padding:9px 16px;
+    border-radius:var(--radius-card);
+    cursor:pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .tour-btn:hover, .tour-btn:focus-visible{ background:var(--amber); color:#160E06; }
+  .tour-btn:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+
+  nav.tabs{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-bottom: 26px;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    background: var(--bg);
+    padding: 10px 0;
+    z-index: 5;
+  }
+  .tab{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+    background: var(--bg-panel);
+    border:1px solid var(--rail);
+    color:var(--ink-dim);
+    padding:8px 12px;
+    border-radius: 999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .tab[aria-selected="true"]{
+    color:#160E06;
+    background:var(--teal);
+    border-color:var(--teal);
+  }
+  .tab:focus-visible{ outline:2px solid var(--amber); outline-offset:2px; }
+
+  section.panel{ display:none; }
+  section.panel.active{ display:block; animation: fadein 0.35s ease; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+
+  .panel-intro{ color:var(--ink-dim); font-size:0.92rem; margin: 0 0 22px; max-width: 62ch; }
+
+  .rail{
+    position:relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--rail);
+  }
+  .node{
+    position:relative;
+    margin-bottom: 4px;
+  }
+  .node::before{
+    content:'';
+    position:absolute;
+    left:-33.5px;
+    top: 20px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background: var(--bg);
+    border:2px solid var(--amber);
+  }
+  .node.open::before{ background: var(--amber); box-shadow: 0 0 0 4px rgba(217,142,59,0.18); }
+
+  .node-head{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 14px 10px 14px 4px;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    color:var(--ink);
+    border-bottom:1px solid rgba(38,49,74,0.6);
+  }
+  .node-head:focus-visible{ outline:2px solid var(--teal); outline-offset:-2px; }
+  .node-year{
+    font-family:var(--mono);
+    color:var(--amber-glow);
+    font-size:0.82rem;
+    flex-shrink:0;
+    min-width: 92px;
+  }
+  .node-title{
+    font-weight:600;
+    font-size:1.02rem;
+    flex:1;
+  }
+  .node-icon{ font-size:1rem; opacity:0.8; flex-shrink:0; }
+  .chevron{
+    font-family:var(--mono);
+    color:var(--ink-faint);
+    transition: transform 0.2s ease;
+    flex-shrink:0;
+  }
+  .node.open .chevron{ transform: rotate(90deg); color:var(--amber-glow); }
+
+  .node-body{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 0.28s ease;
+  }
+  .node.open .node-body{ max-height: 900px; }
+  .node-body-inner{
+    padding: 4px 10px 22px 4px;
+    color: var(--ink-dim);
+    font-size:0.96rem;
+  }
+  .node-body-inner .who{
+    font-family:var(--mono);
+    font-size:0.76rem;
+    color:var(--teal);
+    display:block;
+    margin-bottom:8px;
+  }
+  .node-body-inner p{ margin: 0 0 10px; }
+  .aporte{
+    border-left: 2px solid var(--teal);
+    padding: 8px 0 8px 12px;
+    margin-top: 10px;
+    background: rgba(95,179,160,0.05);
+    font-size: 0.9rem;
+  }
+  .aporte b{ color:var(--teal); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.02em; display:block; margin-bottom:4px; }
+  .traits{ margin: 8px 0 0; padding-left: 18px; }
+  .traits li{ margin-bottom:4px; }
+
+  .pitch-card{
+    background: var(--bg-panel);
+    border:1px solid var(--rail);
+    border-radius: var(--radius-card);
+    padding: 22px 22px 8px;
+  }
+  .pitch-card h3{ margin-top:0; color:var(--amber-glow); font-size:1.1rem; }
+  .pitch-q{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    color:var(--teal);
+    margin: 18px 0 6px;
+  }
+  .pitch-q:first-of-type{ margin-top:4px; }
+
+  .source{
+    padding: 14px 0;
+    border-bottom:1px solid rgba(38,49,74,0.6);
+    font-size:0.92rem;
+    color:var(--ink-dim);
+  }
+  .source:last-child{ border-bottom:none; }
+  .source a{ font-family:var(--mono); font-size:0.82rem; }
+
+  .tour-overlay{
+    position:fixed; inset:0;
+    background: rgba(6,9,15,0.94);
+    z-index: 50;
+    display:flex;
+    flex-direction:column;
+    padding: max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom));
+  }
+  .tour-overlay.hidden{ display:none; }
+  .tour-top{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint);
+    margin-bottom: 20px;
+  }
+  .tour-close{
+    background:none; border:1px solid var(--rail); color:var(--ink-dim);
+    border-radius:999px; width:32px; height:32px; cursor:pointer; font-size:1rem;
+  }
+  .tour-close:focus-visible{ outline:2px solid var(--amber); }
+  .tour-body{
+    flex:1;
+    display:flex; align-items:center; justify-content:center;
+    overflow-y:auto;
+  }
+  .tour-card{
+    max-width: 560px;
+    animation: fadein 0.3s ease;
+  }
+  .tour-year{ font-family:var(--mono); color:var(--amber-glow); font-size:1rem; margin-bottom:10px; }
+  .tour-card h2{ margin:0 0 12px; font-size:1.5rem; color:var(--ink); }
+  .tour-card .who{ font-family:var(--mono); color:var(--teal); font-size:0.78rem; display:block; margin-bottom:12px; }
+  .tour-card p{ color:var(--ink-dim); }
+  .tour-nav{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:10px; margin-top: 14px;
+  }
+  .tour-navbtn{
+    font-family:var(--mono); font-size:0.8rem;
+    background:var(--bg-panel); border:1px solid var(--rail); color:var(--ink);
+    padding:10px 16px; border-radius: var(--radius-card); cursor:pointer;
+  }
+  .tour-navbtn:disabled{ opacity:0.3; cursor:default; }
+  .tour-navbtn:not(:disabled):hover{ border-color:var(--amber); color:var(--amber-glow); }
+  .tour-progress{
+    height:2px; background:var(--rail); border-radius:2px; overflow:hidden; margin-bottom:22px;
+  }
+  .tour-progress-fill{ height:100%; background:var(--amber); transition:width 0.25s ease; }
+
+  @media (max-width: 480px){
+    .node-year{ min-width:74px; font-size:0.72rem; }
+    .node-title{ font-size:0.94rem; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <p class="kicker">ACTIVIDAD #1 · INTRODUCCIÓN A LA INFORMÁTICA</p>
+    <h1>Evolución histórica de las computadoras y el software</h1>
+    <p class="subtitle">Del ábaco a la inteligencia artificial: un recorrido por los hitos, las personas y los cambios de paradigma que dieron forma a la computación moderna.</p>
+    <button class="tour-btn" id="startTour">▶ Iniciar recorrido guiado</button>
+  </header>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones de la línea de tiempo"></nav>
+  <main id="panels"></main>
+</div>
+
+<div class="tour-overlay hidden" id="tourOverlay" role="dialog" aria-modal="true" aria-label="Recorrido guiado">
+  <div class="tour-top">
+    <span id="tourCounter">1 / 1</span>
+    <button class="tour-close" id="tourClose" aria-label="Cerrar recorrido">✕</button>
+  </div>
+  <div class="tour-progress"><div class="tour-progress-fill" id="tourProgressFill"></div></div>
+  <div class="tour-body">
+    <div class="tour-card" id="tourCard"></div>
+  </div>
+  <div class="tour-nav">
+    <button class="tour-navbtn" id="tourPrev">← Anterior</button>
+    <button class="tour-navbtn" id="tourNext">Siguiente →</button>
+  </div>
+</div>
+
+<script>
+const DATA = [
+  {
+    id:'antecedentes', label:'Antecedentes', icon:'🧮',
+    intro:'Los instrumentos y las ideas, mecánicas y teóricas, que precedieron a la computadora electrónica.',
+    events:[
+      {year:'3000 a. C.', title:'Ábaco', icon:'🧮', who:'Origen de la computación',
+        text:'Uno de los primeros instrumentos utilizados para realizar cálculos. Permitía representar cantidades y efectuar operaciones aritméticas mediante cuentas.',
+        aporte:'Representa uno de los primeros antecedentes de la automatización del cálculo.'},
+      {year:'1642', title:'Pascalina', icon:'⚙️', who:'Blaise Pascal',
+        text:'Blaise Pascal desarrolló la Pascalina, una calculadora mecánica capaz de realizar principalmente sumas y restas.',
+        aporte:'Permitió automatizar operaciones aritméticas mediante un mecanismo físico.'},
+      {year:'1673', title:'Calculadora de Leibniz', icon:'⚙️', who:'Gottfried Wilhelm Leibniz',
+        text:'Leibniz desarrolló una máquina calculadora mecánica que podía realizar suma, resta, multiplicación y división.',
+        aporte:'Amplió las posibilidades de automatización de los cálculos matemáticos.'},
+      {year:'1822', title:'Máquina Diferencial', icon:'⚙️', who:'Charles Babbage',
+        text:'Charles Babbage diseñó la Máquina Diferencial para automatizar la elaboración de tablas matemáticas. Posteriormente planteó la Máquina Analítica, cuyo diseño incorporaba conceptos semejantes a los de una computadora moderna.',
+        aporte:'Introdujo ideas fundamentales como procesamiento, memoria e instrucciones programables.'},
+      {year:'1843', title:'Ada Lovelace', icon:'✍️', who:'Primeros conceptos de programación',
+        text:'Ada Lovelace publicó notas sobre la Máquina Analítica de Babbage que incluían una secuencia de operaciones para resolver un problema matemático.',
+        aporte:'Sus notas son consideradas una de las primeras descripciones publicadas de un programa informático y anticiparon la idea de que una máquina podía manipular símbolos además de números.'},
+      {year:'1890', title:'Máquina de Hollerith', icon:'🗂️', who:'Procesamiento automatizado de datos',
+        text:'Herman Hollerith desarrolló una máquina que utilizaba tarjetas perforadas para procesar los datos del censo de Estados Unidos de 1890.',
+        aporte:'Permitió procesar grandes cantidades de información de manera mucho más rápida que el conteo manual.'},
+      {year:'1936', title:'Máquina de Turing', icon:'🧠', who:'Alan Turing',
+        text:'Alan Turing planteó el concepto de una máquina capaz de ejecutar diferentes algoritmos mediante instrucciones.',
+        aporte:'Estableció fundamentos teóricos de la computación moderna y del concepto de una máquina universal.'}
+    ]
+  },
+  {
+    id:'generaciones', label:'Generaciones', icon:'💻',
+    intro:'Cinco generaciones de hardware, cada una definida por un salto tecnológico distinto.',
+    events:[
+      {year:'1940–1956', title:'Primera generación · Tubos de vacío', icon:'💡', who:'Ejemplo: ENIAC',
+        text:'ENIAC utilizaba aproximadamente 18,000 tubos de vacío y pesaba unas 30 toneladas. Programación mediante lenguaje máquina y configuración física de la computadora.',
+        traits:['Grandes dimensiones','Alto consumo de energía','Generaban mucho calor','Utilizaban lenguaje máquina','Costosas y difíciles de mantener'],
+        aporte:'Permitió realizar cálculos electrónicos a gran velocidad por primera vez.'},
+      {year:'1956–1964', title:'Segunda generación · Transistores', icon:'🔹', who:'Ejemplo: IBM 1401',
+        text:'Los transistores sustituyeron a los tubos de vacío, haciendo las computadoras más pequeñas, eficientes y confiables. Desarrollo de lenguajes como FORTRAN y COBOL.',
+        traits:['Menor tamaño','Menor consumo de energía','Mayor confiabilidad','Mayor velocidad','Lenguajes de alto nivel'],
+        aporte:'Mejoró radicalmente la eficiencia y confiabilidad frente a los tubos de vacío.'},
+      {year:'1964–1971', title:'Tercera generación · Circuitos integrados', icon:'🔲', who:'Ejemplo: IBM System/360',
+        text:'Los circuitos integrados permitieron incorporar numerosos componentes electrónicos en chips pequeños. Los sistemas operativos adquirieron mayor importancia y se desarrollaron plataformas compatibles con diferentes aplicaciones.',
+        traits:['Menor tamaño','Mayor capacidad de procesamiento','Mayor confiabilidad','Menor costo','Sistemas operativos más avanzados'],
+        aporte:'Mejoró considerablemente el rendimiento al integrar muchos componentes en un solo chip.'},
+      {year:'1971–1980s', title:'Cuarta generación · Microprocesadores', icon:'🖥️', who:'Ejemplo: Intel 4004',
+        text:'El microprocesador permitió integrar la unidad central de procesamiento en un solo chip y aceleró la expansión de la computación personal.',
+        traits:['Gran reducción del tamaño','Mayor velocidad','Menor costo','Mayor almacenamiento','Aparición de las PC'],
+        aporte:'Impulsó la expansión de sistemas operativos y programas para el usuario personal.'},
+      {year:'1980s–actualidad', title:'Quinta generación · Inteligencia artificial', icon:'🤖', who:'Ejemplos: sistemas expertos, asistentes virtuales, IA moderna',
+        text:'La informática evolucionó hacia sistemas capaces de analizar información, reconocer patrones y automatizar tareas complejas.',
+        traits:['Uso de inteligencia artificial','Procesamiento de grandes volúmenes de datos','Mayor conectividad','Automatización de tareas','Interacción más natural'],
+        aporte:'Marca el paso de la ejecución de instrucciones fijas al análisis y la generación de resultados.'}
+    ]
+  },
+  {
+    id:'software', label:'Software', icon:'💾',
+    intro:'De los primeros compiladores a la inteligencia artificial: cómo evolucionaron los programas y la manera de escribirlos.',
+    events:[
+      {year:'1952', title:'Primeros compiladores', icon:'🔤', who:'Grace Hopper',
+        text:'Grace Hopper desarrolló A-0, uno de los primeros sistemas relacionados con la idea moderna de compilador, permitiendo utilizar instrucciones más cercanas al lenguaje humano en lugar de depender directamente de códigos numéricos.',
+        aporte:'Facilitó la programación y contribuyó al desarrollo posterior de los lenguajes de alto nivel.'},
+      {year:'1957', title:'FORTRAN', icon:'🔤', who:'Equipo dirigido por John Backus',
+        text:'Uno de los primeros lenguajes de alto nivel ampliamente utilizados.',
+        aporte:'Facilitó la programación científica con instrucciones más cercanas al lenguaje humano.'},
+      {year:'1959', title:'COBOL', icon:'🔤', who:'Con participación clave de Grace Hopper',
+        text:'Lenguaje orientado principalmente al procesamiento de información empresarial y comercial.',
+        aporte:'Permitió desarrollar software para aplicaciones administrativas y de negocios.'},
+      {year:'1969', title:'UNIX', icon:'🖥️', who:'Ken Thompson y Dennis Ritchie, Bell Labs',
+        text:'UNIX incorporó características de sistemas multiusuario y multitarea.',
+        aporte:'Tuvo una gran influencia en la evolución posterior de los sistemas operativos.'},
+      {year:'1973', title:'Xerox Alto', icon:'🖱️', who:'Interfaces gráficas',
+        text:'Incorporó elementos fundamentales para las interfaces gráficas modernas: pantalla gráfica, mouse, ventanas y menús.',
+        aporte:'Contribuyó al desarrollo de la computación personal y de las interfaces gráficas de usuario.'},
+      {year:'1985', title:'Windows 1.0', icon:'🪟', who:'Microsoft',
+        text:'Interfaz gráfica que funcionaba sobre MS-DOS.',
+        aporte:'Ayudó a extender el uso de interfaces gráficas en las computadoras personales.'},
+      {year:'1989–1991', title:'World Wide Web', icon:'🌐', who:'Tim Berners-Lee, CERN',
+        text:'En 1989 propuso un sistema para compartir información mediante hipertexto. En 1990 desarrolló el primer navegador y servidor web, y en 1991 el software comenzó a difundirse fuera de CERN.',
+        aporte:'Sentó las bases de la Web moderna y transformó la forma de acceder y compartir información.'},
+      {year:'Década de 1990', title:'Expansión de Internet', icon:'📡', who:'Impacto',
+        text:'Internet y la Web comenzaron a expandirse rápidamente, dando lugar a nuevos servicios y aplicaciones.',
+        traits:['Comunicación global','Acceso a información','Correo electrónico','Sitios web','Servicios digitales']},
+      {year:'Década de 2000', title:'Computación en la nube', icon:'☁️', who:'Impacto',
+        text:'Permitió acceder mediante redes a recursos como servidores, almacenamiento, aplicaciones y servicios.',
+        aporte:'El software y los recursos informáticos comenzaron a ofrecerse cada vez más como servicios accesibles desde Internet.'},
+      {year:'2000–2010', title:'Aplicaciones móviles', icon:'📱', who:'Impacto',
+        text:'La expansión de los teléfonos inteligentes impulsó el desarrollo de aplicaciones diseñadas específicamente para dispositivos móviles.',
+        traits:['Comunicación instantánea','Acceso a servicios desde cualquier lugar','Aplicaciones educativas y empresariales','Uso de GPS, cámaras y sensores']},
+      {year:'2010–actualidad', title:'Inteligencia artificial', icon:'🤖', who:'Ejemplos',
+        text:'El aprendizaje automático, las redes neuronales y el procesamiento de grandes volúmenes de datos impulsaron nuevas aplicaciones de IA.',
+        traits:['Reconocimiento de voz','Reconocimiento de imágenes','Traducción automática','Sistemas de recomendación','Generación de texto e imágenes'],
+        aporte:'La IA está transformando la forma en que se desarrolla y utiliza el software.'}
+    ]
+  },
+  {
+    id:'paradigmas', label:'Paradigmas', icon:'🔄',
+    intro:'Cuatro cambios de rumbo que redefinieron qué es y cómo funciona una computadora.',
+    events:[
+      {year:'⚙️', title:'Mecánico → Electrónico', icon:'⚡',
+        text:'Los cálculos pasaron de mecanismos físicos a sistemas electrónicos, aumentando considerablemente la velocidad de procesamiento.'},
+      {year:'📦', title:'Gran tamaño → Miniaturización', icon:'🔬',
+        text:'Los tubos de vacío fueron sustituidos por transistores, circuitos integrados y microprocesadores, permitiendo computadoras cada vez más pequeñas y potentes.'},
+      {year:'💾', title:'Software local → Computación en la nube', icon:'☁️',
+        text:'Los programas y datos dejaron de depender exclusivamente del dispositivo local y comenzaron a utilizarse mediante servicios disponibles a través de Internet.'},
+      {year:'🤖', title:'Programación tradicional → Inteligencia artificial', icon:'🧠',
+        text:'El software ha evolucionado desde programas que ejecutan instrucciones definidas hacia sistemas capaces de analizar datos, identificar patrones y generar resultados.'}
+    ]
+  }
+];
+
+const PITCH = {
+  title:'Asistente educativo inteligente personalizado',
+  items:[
+    ['¿En qué consiste?','Una plataforma educativa basada en inteligencia artificial que adapte automáticamente las explicaciones, ejercicios y materiales al nivel de cada estudiante.'],
+    ['¿Qué necesidad atiende?','Busca atender las diferencias en el ritmo y las dificultades de aprendizaje de los estudiantes.'],
+    ['¿Cómo funcionaría?','Analizaría el desempeño del estudiante, identificaría los temas que presentan mayor dificultad y generaría ejercicios y explicaciones adaptadas.'],
+    ['¿Por qué podría ser útil?','Permitiría complementar la educación tradicional con un aprendizaje más personalizado y brindar retroalimentación inmediata.']
+  ]
+};
+
+const SOURCES = [
+  ['Computer History Museum. (s. f.). A brief history.', 'https://www.computerhistory.org/babbage/history/'],
+  ['Computer History Museum. (s. f.). Ada Lovelace.', 'https://www.computerhistory.org/babbage/adalovelace/'],
+  ['Computer History Museum. (s. f.). Timeline of computer history.', 'https://www.computerhistory.org/timeline/computers/'],
+  ['Computer History Museum. (s. f.). Software & languages: Timeline of computer history.', 'https://www.computerhistory.org/timeline/software-languages/'],
+  ['IBM. (s. f.). The history of the central processing unit (CPU).', 'https://www.ibm.com/think/topics/central-processing-unit-history'],
+  ['National Institute of Standards and Technology. (2011). The NIST definition of cloud computing (SP 800-145).', 'https://www.nist.gov/publications/nist-definition-cloud-computing'],
+  ['CERN. (s. f.). A short history of the Web.', 'https://home.cern/science/computing/birth-web/short-history-web'],
+  ['U.S. Census Bureau. (s. f.). The Hollerith machine.', 'https://www.census.gov/about/history/bureau-history/census-innovations/technology/hollerith-machine.html']
+];
+
+const tabsEl = document.getElementById('tabs');
+const panelsEl = document.getElementById('panels');
+const ALL_TABS = [...DATA.map(s=>({id:s.id,label:s.label,icon:s.icon})), {id:'propuesta',label:'Propuesta',icon:'🚀'}, {id:'fuentes',label:'Fuentes',icon:'📚'}];
+
+ALL_TABS.forEach((t,i)=>{
+  const btn = document.createElement('button');
+  btn.className='tab'; btn.setAttribute('role','tab'); btn.dataset.target=t.id;
+  btn.setAttribute('aria-selected', i===0 ? 'true':'false');
+  btn.textContent = t.icon+' '+t.label;
+  btn.addEventListener('click', ()=>showPanel(t.id));
+  tabsEl.appendChild(btn);
+});
+
+DATA.forEach(section=>{
+  const panel = document.createElement('section');
+  panel.className='panel'; panel.id='panel-'+section.id; panel.setAttribute('role','tabpanel');
+  const intro = document.createElement('p'); intro.className='panel-intro'; intro.textContent = section.intro;
+  panel.appendChild(intro);
+  const rail = document.createElement('div'); rail.className='rail';
+  section.events.forEach((ev,idx)=>{
+    rail.appendChild(buildNode(ev, section.id+'-'+idx));
+  });
+  panel.appendChild(rail);
+  panelsEl.appendChild(panel);
+});
+
+function buildNode(ev, uid){
+  const node = document.createElement('div'); node.className='node';
+  const head = document.createElement('button');
+  head.className='node-head'; head.setAttribute('aria-expanded','false');
+  head.innerHTML = `<span class="node-year">${ev.year}</span><span class="node-icon">${ev.icon||''}</span><span class="node-title">${ev.title}</span><span class="chevron">▸</span>`;
+  const body = document.createElement('div'); body.className='node-body';
+  const inner = document.createElement('div'); inner.className='node-body-inner';
+  let html='';
+  if(ev.who) html += `<span class="who">${ev.who}</span>`;
+  html += `<p>${ev.text}</p>`;
+  if(ev.traits) html += `<ul class="traits">${ev.traits.map(t=>`<li>${t}</li>`).join('')}</ul>`;
+  if(ev.aporte) html += `<div class="aporte"><b>Aporte</b>${ev.aporte}</div>`;
+  inner.innerHTML = html;
+  body.appendChild(inner);
+  head.addEventListener('click', ()=>{
+    const isOpen = node.classList.toggle('open');
+    head.setAttribute('aria-expanded', isOpen ? 'true':'false');
+  });
+  node.appendChild(head); node.appendChild(body);
+  return node;
+}
+
+(function(){
+  const panel = document.createElement('section');
+  panel.className='panel'; panel.id='panel-propuesta'; panel.setAttribute('role','tabpanel');
+  const card = document.createElement('div'); card.className='pitch-card';
+  let html = `<h3>🚀 ${PITCH.title}</h3>`;
+  PITCH.items.forEach(([q,a])=>{ html += `<p class="pitch-q">${q}</p><p>${a}</p>`; });
+  card.innerHTML = html;
+  panel.appendChild(card);
+  panelsEl.appendChild(panel);
+})();
+
+(function(){
+  const panel = document.createElement('section');
+  panel.className='panel'; panel.id='panel-fuentes'; panel.setAttribute('role','tabpanel');
+  const intro = document.createElement('p'); intro.className='panel-intro';
+  intro.textContent = 'Referencias institucionales y especializadas (formato APA 7) para respaldar el contenido.';
+  panel.appendChild(intro);
+  SOURCES.forEach(([label,url])=>{
+    const div = document.createElement('div'); div.className='source';
+    div.innerHTML = `${label} <br><a href="${url}" target="_blank" rel="noopener">${url}</a>`;
+    panel.appendChild(div);
+  });
+  panelsEl.appendChild(panel);
+})();
+
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+id));
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.target===id ? 'true':'false'));
+}
+showPanel(ALL_TABS[0].id);
+
+/* ---------- guided tour ---------- */
+const TOUR_ITEMS = [];
+DATA.forEach(section=>{
+  section.events.forEach(ev=>{ TOUR_ITEMS.push({...ev, section: section.label}); });
+});
+TOUR_ITEMS.push({year:'🚀', title:PITCH.title, section:'Propuesta',
+  text: PITCH.items.map(([q,a])=>`${q} ${a}`).join(' ')});
+
+let tourIndex = 0;
+const tourOverlay = document.getElementById('tourOverlay');
+const tourCard = document.getElementById('tourCard');
+const tourCounter = document.getElementById('tourCounter');
+const tourProgressFill = document.getElementById('tourProgressFill');
+const tourPrev = document.getElementById('tourPrev');
+const tourNext = document.getElementById('tourNext');
+
+function renderTour(){
+  const ev = TOUR_ITEMS[tourIndex];
+  let html = `<div class="tour-year">${ev.section} · ${ev.year}</div>`;
+  html += `<h2>${ev.title}</h2>`;
+  if(ev.who) html += `<span class="who">${ev.who}</span>`;
+  html += `<p>${ev.text}</p>`;
+  if(ev.aporte) html += `<div class="aporte"><b>Aporte</b>${ev.aporte}</div>`;
+  tourCard.innerHTML = html;
+  tourCounter.textContent = `${tourIndex+1} / ${TOUR_ITEMS.length}`;
+  tourProgressFill.style.width = `${((tourIndex+1)/TOUR_ITEMS.length)*100}%`;
+  tourPrev.disabled = tourIndex===0;
+  tourNext.textContent = tourIndex===TOUR_ITEMS.length-1 ? 'Finalizar ✕' : 'Siguiente →';
+}
+document.getElementById('startTour').addEventListener('click', ()=>{
+  tourIndex = 0; tourOverlay.classList.remove('hidden'); renderTour();
+});
+document.getElementById('tourClose').addEventListener('click', ()=> tourOverlay.classList.add('hidden'));
+tourPrev.addEventListener('click', ()=>{ if(tourIndex>0){ tourIndex--; renderTour(); } });
+tourNext.addEventListener('click', ()=>{
+  if(tourIndex < TOUR_ITEMS.length-1){ tourIndex++; renderTour(); }
+  else { tourOverlay.classList.add('hidden'); }
+});
+document.addEventListener('keydown', (e)=>{
+  if(tourOverlay.classList.contains('hidden')) return;
+  if(e.key==='ArrowRight') tourNext.click();
+  if(e.key==='ArrowLeft') tourPrev.click();
+  if(e.key==='Escape') tourOverlay.classList.add('hidden');
+});
+</script>
+</body>
+</html>

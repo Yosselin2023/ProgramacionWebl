@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afiliación al Club de Puntos | Supermercado El Ahorro</title>
+    <!-- En la siguiente Semana  aprenderemos a vincular aquí nuestra hoja de estilos externa: -->
+    <!-- <link rel="stylesheet" href="estilos.css"> -->
+</head>
+<body>
+    <header class="encabezado-tienda">
+        <h1>🛒 Supermercado El Ahorro</h1>
+        <p>Formulario Oficial de Inscripción al Club de Beneficios y Puntos 2026</p>
+    </header>
+
+    <nav>
+        <a href="index.html">← Volver al Catálogo Principal</a> |
+        <a href="cv.html">Ver Perfil del Desarrollador</a>
+    </nav>
+
+    <main class="contenedor-formulario">
+        <h2>Afiliación de Cliente Nuevo</h2>
+        <p>Completa este formulario para acumular 5 puntos por cada Lempira de compra en todas nuestras sucursales de Honduras.</p>
+
+        <form action="https://tienda.supermercadoelahorro.hn/api/afiliados" method="POST" enctype="multipart/form-data" class="formulario-registro">
+            
+            <!-- BLOQUE 1: DATOS PERSONALES -->
+            <fieldset>
+                <legend>1. Datos Personales del Titular</legend>
+
+                <div class="campo-form">
+                    <label for="nombreCompleto">Nombre y Apellidos Completos:*</label>
+                    <input type="text" id="nombreCompleto" name="nombre" required minlength="6" maxlength="80" placeholder="Ej: Juan Ramón Pérez López">
+                </div>
+
+                <div class="campo-form">
+                    <label for="dniHonduras">Documento Nacional de Identificación (DNI):*</label>
+                    <input type="text" id="dniHonduras" name="dni" required pattern="[0-9]{4}-[0-9]{4}-[0-9]{5}" placeholder="0801-1999-12345" title="Formato requerido de DNI: 0801-1999-12345 (con guiones)">
+                </div>
+
+                <div class="campo-form">
+                    <label for="fechaNacimiento">Fecha de Nacimiento:*</label>
+                    <input type="date" id="fechaNacimiento" name="fecha_nacimiento" required max="2008-01-01">
+                </div>
+
+                <div class="campo-form">
+                    <label for="telefonoHonduras">Teléfono:*</label>
+                    <input type="tel" id="telefonoHonduras" name="telefono" required pattern="\+504 [0-9]{4}-[0-9]{4}" placeholder="+504 9999-0000" title="Formato requerido: +504 seguido de 8 dígitos (ej: +504 9999-0000)">
+                </div>
+
+                <div class="campo-form">
+                    <label for="correoAfiliado">Correo Electrónico:*</label>
+                    <input type="email" id="correoAfiliado" name="correo" required placeholder="cliente@correo.com">
+                </div>
+            </fieldset>
+
+            <!-- BLOQUE 2: CREDENCIALES DE ACCESO AL PORTAL -->
+            <fieldset>
+                <legend>2. Seguridad y Acceso al Portal Web</legend>
+
+                <div class="campo-form">
+                    <label for="passwordCliente">Contraseña Secreta:*</label>
+                    <input type="password" id="passwordCliente" name="password" required minlength="8" placeholder="Mínimo 8 caracteres">
+                </div>
+
+                <div class="campo-form">
+                    <label for="passwordConfirm">Confirmar Contraseña:*</label>
+                    <input type="password" id="passwordConfirm" name="password_confirm" required minlength="8" placeholder="Repite tu contraseña">
+                </div>
+            </fieldset>
+
+            <!-- BLOQUE 3: PREFERENCIAS DE COMPRA -->
+            <fieldset>
+                <legend>3. Preferencias de Compra y Notificaciones</legend>
+
+                <div class="campo-form">
+                    <label for="sucursalFavorita">Sucursal de Mayor Frecuencia:*</label>
+                    <select id="sucursalFavorita" name="sucursal" required>
+                        <option value="">-- Seleccione su sucursal más cercana --</option>
+                        <option value="morazan">Tegucigalpa - Blvd. Morazán</option>
+                        <option value="cascadas">Tegucigalpa - Mall Las Cascadas</option>
+                        <option value="pedregal">Tegucigalpa - El Pedregal</option>
+                        <option value="circunvalacion">San Pedro Sula - Av. Circunvalación</option>
+                    </select>
+                </div>
+
+                <div class="campo-form">
+                    <p><strong>Departamentos de Interés (Selecciona tus favoritos):</strong></p>
+                    <label><input type="checkbox" name="intereses" value="carnes"> Carnes y Embutidos</label><br>
+                    <label><input type="checkbox" name="intereses" value="lacteos"> Lácteos y Quesos</label><br>
+                    <label><input type="checkbox" name="intereses" value="frutas"> Frutas y Verduras Frescas</label><br>
+                    <label><input type="checkbox" name="intereses" value="panaderia"> Panadería y Repostería</label>
+                </div>
+
+                <div class="campo-form">
+                    <p><strong>Medio Preferido para Enviar Cupones de Descuento (Selección única):*</strong></p>
+                    <!-- Mismo atributo name="medio_contacto" para garantizar selección única -->
+                    <label><input type="radio" name="medio_contacto" value="whatsapp" checked required> Mensaje por WhatsApp</label><br>
+                    <label><input type="radio" name="medio_contacto" value="email"> Correo Electrónico</label><br>
+                    <label><input type="radio" name="medio_contacto" value="sms"> Mensaje de Texto (SMS)</label>
+                </div>
+            </fieldset>
+
+            <!-- BLOQUE 4: VERIFICACIÓN Y ENVÍO -->
+            <fieldset>
+                <legend>4. Verificación de Identidad y Envío</legend>
+
+                <div class="campo-form">
+                    <label for="fotoIdentidad">Copia o Fotografía Frontal de tu DNI (Imagen o PDF):*</label>
+                    <input type="file" id="fotoIdentidad" name="documento_identidad" required accept="image/*,.pdf">
+                </div>
+
+                <div class="campo-form">
+                    <label for="direccionNotas">Dirección Exacta para Envíos a Domicilio:</label>
+                    <textarea id="direccionNotas" name="direccion_entrega" rows="3" placeholder="Colonia, bloque, número de casa y puntos de referencia..."></textarea>
+                </div>
+
+                <div class="campo-form">
+                    <label>
+                        <input type="checkbox" name="acepto_terminos" required>
+                        Acepto los Términos y Condiciones del Club de Puntos y la Política de Protección de Datos de Supermercado El Ahorro.*
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="acciones-form">
+                <button type="submit" class="btn-primario">Afiliarme al Club de Puntos</button>
+                <button type="reset" class="btn-secundario">Limpiar Formulario</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Supermercado El Ahorro | Seguridad de Datos Cifrada con TLS.</p>
+    </footer>
+</body>
+</html>

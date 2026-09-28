@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Producto - Supermercado El Ahorro</title>
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #198754;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Contenedor principal */
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Tarjeta del producto */
+        .producto-card {
+            background-color: white;
+            width: 350px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto-card header {
+            background: none;
+            color: #333;
+            padding: 0;
+        }
+
+        .producto-card header p {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Imagen */
+        figure {
+            margin: 20px 0;
+        }
+
+        figure img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Precio */
+        section strong {
+            color: #198754;
+        }
+
+        section p:first-child {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Botón */
+        button {
+            background-color: #ffc107;
+            color: #212529;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffca2c;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛒 Supermercado El Ahorro - Catálogo de Lácteos</h1>
+    </header>
+
+    <main>
+        <article class="producto-card" id="prod-101">
+
+            <header>
+                <p>[Oferta Semanal]</p>
+                <h2>Leche Entera Sula 1L</h2>
+            </header>
+
+            <figure>
+                <img src="leche-sula.webp"
+                     alt="Bolsa de leche entera pasteurizada Sula de 1 litro"
+                     width="200">
+
+                <figcaption>
+                    Leche 100% pura de vaca hondureña.
+                </figcaption>
+            </figure>
+
+            <section>
+                <p><strong>Precio de oferta:</strong> L. 32.50</p>
+
+                <p>
+                    Rica en calcio y vitaminas A y D.
+                    Conservar refrigerada después de abrir.
+                </p>
+
+                <button type="button">
+                    Añadir al Carrito
+                </button>
+            </section>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Supermercado El Ahorro. Tegucigalpa, Honduras.</p>
+    </footer>
+
+</body>
+</html>
+
