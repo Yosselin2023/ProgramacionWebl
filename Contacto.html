@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Restaurante Sabor de la Costa</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html"> Menu</a></li>
+            <li><a href="reservaciones.html">Reservaciones</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contáctanos</h1>
+    <p>¿Tienes dudas, comentarios o quieres organizar un evento privado? Escríbenos.</p>
+
+    <section>
+      <h2>Información de Atención</h2>
+      <p><strong>Dirección:</strong> Boulevard Kennedy, Tegucigalpa, Francisco Morazan</p>
+      <p><strong>Teléfono:</strong> +504 2222-0000</p>
+      <p><strong>WhatsApp:</strong> +504 8754-7689</p>
+      <p><strong>Correo:</strong> con@sabordelacosta.com</p>
+      <p><strong>Horario:</strong> Lunes a Domingo de 12:00 PM a 10:00 PM</p>
+    </section>
+
+    <section>
+      <h2>Envíanos un mensaje</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="nombre">Nombre completo:</label><br>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <br>
+        <div>
+          <label for="correo">Correo electrónico:</label><br>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <br>
+        <div>
+          <label for="asunto">Asunto:</label><br>
+          <select id="asunto" name="asunto">
+            <option value="general">Consulta general</option>
+            <option value="eventos">Eventos privados / Banquetes</option>
+            <option value="proveedores">Proveedores</option>
+            <option value="sugerencias">Sugerencias y comentarios</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label for="mensaje">Dejanos un ensaje para conocer tus sugerencias:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        <br>
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; 2026 Sabor de la Costa. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
