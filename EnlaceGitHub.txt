@@ -1,0 +1,6 @@
+HONDURAS: TIERRA DE ENCANTO
+Proyecto académico de portal turístico en HTML y CSS (estructura básica).
+
+ARCHIVOS
+- index.html, destinos.html, cultura.html, reservaciones.html, contacto.html
+- estilos.css: estilos compartidos por las cinco páginas

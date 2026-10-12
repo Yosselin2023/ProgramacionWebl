@@ -1,0 +1,181 @@
+/* Estilos básicos - Honduras: Tierra de Encanto */
+:root {
+    --azul: #1b2996;
+    --azul-oscuro: #0a3d91;
+    --azul-marino: #0a2a5e;
+    --celeste: #001aff;
+    --cian: #00e5ff;
+    --fondo: #e2e6ea;
+    --fondo-suave: #cbced1;
+    --borde: #b6d4fe;
+    --texto: #12304f;
+}
+
+html {
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fondo);
+    margin: 0;
+}
+
+/* Barra de navegación fija al desplazarse */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--azul);
+    border-bottom: 4px solid var(--celeste);
+    padding: 10px 40px;
+}
+
+header h2 {
+    color: white;
+    margin: 0 0 5px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--cian);
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: var(--azul-oscuro);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+}
+
+h2 {
+    border-bottom: 3px solid var(--celeste);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--azul);
+}
+
+a {
+    color: var(--azul);
+}
+
+article {
+    background-color: white;
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--azul);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(11, 94, 215, 0.2);
+}
+
+img {
+    max-width: 100%;
+    width: 400px;
+    border: 3px solid var(--azul);
+    border-radius: 10px;
+}
+
+table {
+    border: 3px solid var(--azul);
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid var(--borde);
+}
+
+th {
+    background-color: var(--azul);
+    color: white;
+}
+
+blockquote {
+    border: 2px solid var(--celeste);
+    border-left: 8px solid var(--azul);
+    border-radius: 8px;
+    background-color: var(--fondo-suave);
+    padding: 10px 15px;
+    font-style: italic;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border: 3px solid var(--azul);
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 12px rgba(11, 94, 215, 0.25);
+}
+
+input, select, textarea {
+    padding: 6px;
+    margin-top: 4px;
+    border: 2px solid var(--azul);
+    border-radius: 6px;
+}
+
+input:focus, select:focus, textarea:focus {
+    background-color: var(--fondo);
+    outline: 2px solid var(--celeste);
+}
+
+button {
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 25px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--azul-oscuro);
+}
+
+footer {
+    background-color: var(--azul-marino);
+    color: white;
+    text-align: center;
+    border-top: 4px solid var(--celeste);
+    padding: 15px;
+}
