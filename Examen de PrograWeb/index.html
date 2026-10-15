@@ -263,14 +263,46 @@
         </table>
       </div>
     </section>
- 
     <hr>
+
+    <section id="licitaciones">
+      <h2> Formulario de Requisitos y Licitaciones</h2>
+      <form>
+        <p>Nombre del Solicitante:</p>
+        <input type="text" required>
+ 
+        <p>RTN Institucional (14 dígitos):</p>
+        <input type="text" maxlength="14" minlength="14" pattern="[0-9]{14}" required>
+ 
+        <p>Correo Electrónico Institucional:</p>
+        <input type="email" required>
+ 
+        <p>Teléfono de Contacto:</p>
+        <input type="tel" required>
+ 
+        <p>Departamento de Entrega:</p>
+        <select>
+          <option>Comayagua</option>
+          <option>Francisco Morazán</option>
+          <option>Cortés</option>
+          <option>La Paz</option>
+          <option>Atlántida</option>
+          <option>Islas de la Bahía</option>
+        </select>
+ 
+        <p><input type="checkbox" required> Acepto los términos de garantía forestal de 5 años</p>
+ 
+        <button>Enviar Cotización</button>
+        <button>Limpiar Formulario</button>
+      </form>
+    </section>
     </main>
     <hr>
-    <footer>
+    <footer id="contacto">
+        <h2>Contacto</h2>
         <p>Ubicacion: KM 114, Carretera CA-5, Siguatepeque</p>
         <p>Telefono: 2773-0099</p>
-        <p>Sala de Ventas en Blvd Morazan, Tegucigalpa</p>
+        <p>Sala de Ventas en Blvd Morazan, Tegucigalpa - Telefono: 2238-9089</p>
     </footer>
 </body>
 </html>
