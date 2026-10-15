@@ -12,26 +12,36 @@
         <p class="bi bi-telephone-fill">Atencion al Cliente: 2773-9099 / 2238-0009 | Horario de taller: Lun-Vie 8 am - 5 pm</p>
         <img class="img-fluid mb-2" src="logo1.jpg" alt="Logo Taller" width="130">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top px-3 py-2">
-            <details class="dropdown">
-                <summary class="btn btn-outline-light">☰ Menú</summary>
-                <ul class="list-unstyled bg-white p-3 rounded shadow">
-                <li><a href="#index">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#lotes">Lotes Especiales</a></li>
-                <li><a href="#calculadora">Cotizaciones</a></li>
-                <li><a href="#tablacomparativa">Tabla Comparativa de Fichas Tecnicas</a></li>
-                <li><a href="#licitaciones">Requisitos y Licitaciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top px-3 py-2">
+            <a href="#inicio" class="navbar-brand d-flex align-items-center fw-bold fs-3">
+                <span>MUBLESIG<span class="badge bg-dark text-primary  ">Honduras</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#menuNavegacion" 
+                    aria-controls="menuNavegacion" 
+                    aria-expanded="false" 
+                    aria-label="Abrir navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuNavegacion">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li><a class="nav-link px-3 bg-dark" href="#index">Inicio</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#productos">Productos</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#lotes">Lotes Especiales</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#calculadora">Cotizaciones</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#tablacomparativa">Tabla Comparativa de Fichas Tecnicas</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#licitaciones">Requisitos y Licitaciones</a></li>
+                <li><a class="nav-link px-3 bg-dark" href="#contacto">Contacto</a></li>
             </ul>
-            </details>
-            <button class="btn btn-success ms-lg-3">Cotizar Lote por WhatsApp</button>           
+           </div>
+            <button class="btn btn-dark ms-lg-3">Cotizar Lote por WhatsApp</button>           
         </nav>
     </header>
 
-<main class="container py-4">
+<main class="container py-4 bg-dark" >
         <section id="index" class="bg-white rounded shadow-sm p-4 mb-4">
-            <h1 class="display-5 fw-bold text-primary">Mublesig Honduras</h1>
+            <h1 class="display-5 fw-bold text-primary ">Mublesig Honduras</h1>
             <h2 class="mb-3">Quienes Somos</h2>
             <p>Somos una fabrica de Muebles y Carpinteria Industrial</p>
             <p>Ubicacion: Siguatepeque, Comayagua, Carretera CA-5</p>
@@ -41,115 +51,145 @@
         </section>
         <hr>
 
-        <section id="productos" class="mb-4">
-            <h2 class="text-center mb-4">Catalogo de Productos</h2>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Escritorio Ejecutivo en Caoba</h3>
-                <img class="img-fluid rounded mb-3" src="escrito.jpg" alt="Escritorio" width="200">
-                <p>Categoría: Línea Ejecutiva</p>
-                <p><b>Precio: L. 24,500</b></p>
-                <p>Madera: Caoba
-                <br>Dimensiones: 180 x 80 x 75 cm
-                <br>Acabado: Barniz brillante
-                <br>Garantía: 5 años</p>
+```html
+<section id="productos" class="mb-4">
+    <div class="container py-lg-4">
+
+        <h2 class="text-center mb-4 text-primary">Catalogo de Productos</h2>
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Escritorio Ejecutivo en Caoba</h3>
+                    <img class="img-fluid rounded mb-4" src="escrito.jpg" alt="Escritorio" width="200">
+                    <p>Categoría: Línea Ejecutiva</p>
+                    <p><b>Precio: L. 24,500</b></p>
+                    <p>Madera: Caoba
+                    <br>Dimensiones: 180 x 80 x 75 cm
+                    <br>Acabado: Barniz brillante
+                    <br>Garantía: 5 años</p>
+                </div>
             </div>
-            <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Silla Ergonómica Operativa</h3>
-                <img class="img-fluid rounded mb-3" src="silla.jpg" alt="silla" width="200">
-                <p>Categoría: Línea Ejecutiva</p>
-                <p><b>Precio: L. 3,600</b></p>
-                <p>Madera: Pino Oocarpa<br>Dimensiones: 60 x 60 x 110 cm<br>Acabado: Barniz mate<br>Garantía: 2 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Silla Ergonómica Operativa</h3>
+                    <img class="img-fluid rounded mb-3" src="silla.jpg" alt="silla" width="200">
+                    <p>Categoría: Línea Ejecutiva</p>
+                    <p><b>Precio: L. 3,600</b></p>
+                    <p>Madera: Pino Oocarpa<br>Dimensiones: 60 x 60 x 110 cm<br>Acabado: Barniz mate<br>Garantía: 2 años</p>
+                </div>
             </div>
-            <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Mesa de Directorio en Cedro</h3>
-                <img class="img-fluid rounded mb-3" src="Mesa.jpg" alt="Mesa" width="200">
-                <p>Categoría: Línea Ejecutiva</p>
-                <p><b>Precio: L. 36,900</b></p>
-                <p>Madera: Cedro<br>Dimensiones: 300 x 120 x 76 cm<br>Acabado: Barniz natural<br>Garantía: 1 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Mesa de Directorio en Cedro</h3>
+                    <img class="img-fluid rounded mb-3" src="Mesa.jpg" alt="Mesa" width="200">
+                    <p>Categoría: Línea Ejecutiva</p>
+                    <p><b>Precio: L. 36,900</b></p>
+                    <p>Madera: Cedro<br>Dimensiones: 300 x 120 x 76 cm<br>Acabado: Barniz natural<br>Garantía: 1 años</p>
+                </div>
             </div>
-            <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Estanteria en Pino Oocarpa</h3>
-                <img class="img-fluid rounded mb-3" src="Estante.jpg" alt="Estanteria" width="200">
-                <p>Categoría: Archivo</p>
-                <p><b>Precio: L. 6,200</b></p>
-                <p>Madera: Pino Oocarpa<br>Dimensiones: 100 x 35 x 200 cm<br>Acabado: Barniz natural<br>Garantía: 2 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Estanteria en Pino Oocarpa</h3>
+                    <img class="img-fluid rounded mb-3" src="Estante.jpg" alt="Estanteria" width="200">
+                    <p>Categoría: Archivo</p>
+                    <p><b>Precio: L. 6,200</b></p>
+                    <p>Madera: Pino Oocarpa<br>Dimensiones: 100 x 35 x 200 cm<br>Acabado: Barniz natural<br>Garantía: 2 años</p>
+                </div>
             </div>
-             <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Pupitre Universitario</h3>
-                <img class="img-fluid rounded mb-3" src="Pupitre.jpg" alt="Pupitre" width="200">
-                <p>Categoría: Aulas Universitarias</p>
-                <p><b>Precio: L. 1,290</b></p>
-                <p>Madera: Pino Oocarpa<br>Dimensiones: 60 x 50 x 85 cm<br>Acabado: Laca mate<br>Garantía: 3 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Pupitre Universitario</h3>
+                    <img class="img-fluid rounded mb-3" src="Pupitre.jpg" alt="Pupitre" width="200">
+                    <p>Categoría: Aulas Universitarias</p>
+                    <p><b>Precio: L. 1,290</b></p>
+                    <p>Madera: Pino Oocarpa<br>Dimensiones: 60 x 50 x 85 cm<br>Acabado: Laca mate<br>Garantía: 3 años</p>
+                </div>
             </div>
-            <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Mueble de Recepcion en Nogal</h3>
-                <img class="img-fluid rounded mb-3" src="Mueble.jpg" alt="Estanteria" width="200">
-                <p>Categoría: Hotelería</p>
-                <p><b>Precio: L. 32,000</b></p>
-                <p>Madera: Nogal<br>Dimensiones: 220 x 70 x 110 cm<br>Acabado: Laca semibrillante<br>Garantía: 5 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Mueble de Recepcion en Nogal</h3>
+                    <img class="img-fluid rounded mb-3" src="Mueble.jpg" alt="Estanteria" width="180">
+                    <p>Categoría: Hotelería</p>
+                    <p><b>Precio: L. 32,000</b></p>
+                    <p>Madera: Nogal<br>Dimensiones: 220 x 70 x 110 cm<br>Acabado: Laca semibrillante<br>Garantía: 5 años</p>
+                </div>
             </div>
-            <hr>
-            <div class="card shadow-sm p-3 mb-3">
-                <h3 class="h5">Escritorio Secretarial</h3>
-                <img class="img-fluid rounded mb-3" src="secretaria.jpg" alt="Estanteria" width="200">
-                <p>Categoría: Línea Ejecutiva</p>
-                <p><b>Precio: L. 9,500</b></p>
-                <p>Madera: Pino Oocarpa<br>Dimensiones: 140 x 70 x 75 cm<br>Acabado: Barniz natural<br>Garantía: 3 años</p>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Escritorio Secretarial</h3>
+                    <img class="img-fluid rounded mb-3" src="secretaria.jpg" alt="Estanteria" width="200">
+                    <p>Categoría: Línea Ejecutiva</p>
+                    <p><b>Precio: L. 9,500</b></p>
+                    <p>Madera: Pino Oocarpa<br>Dimensiones: 140 x 70 x 75 cm<br>Acabado: Barniz natural<br>Garantía: 3 años</p>
+                </div>
             </div>
-            <hr>
- 
-           <div class="card shadow-sm p-3 mb-3">
-               <h3 class="h5">Archivero de 4 Gavetas</h3>
-               <img class="img-fluid rounded mb-3" src="archivo.jpg" alt="archivo" width="200">
-               <p>Categoría: Archivo</p>
-               <p><b>Precio: L. 7,900</b></p>
-            <p>Madera: Pino Oocarpa<br>Dimensiones: 50 x 60 x 130 cm<br>Acabado: Laca mate<br>Garantía: 3 años</p>
-           </div>
-           <hr>
- 
-           <div class="card shadow-sm p-3 mb-3">
-           <h3 class="h5">Closet de Habitación de Hotel</h3>
-           <img class="img-fluid rounded mb-3" src="closet.jpg" alt="archivo" width="200">
-            <p>Categoría: Hotelería</p>
-        <p><b>Precio: L. 11,800</b></p>
-        <p>Madera: Cedro<br>Dimensiones: 120 x 55 x 210 cm<br>Acabado: Laca blanca<br>Garantía: 5 años</p>
-           </div>
-           <hr>
- 
-           <div class="card shadow-sm p-3 mb-3">
-           <h3 class="h5">Cabecera de Cama para Hotel</h3>
-           <img class="img-fluid rounded mb-3" src="cama.jpg" alt="archivo" width="200">
-            <p>Categoría: Hotelería</p>
-        <p><b>Precio: L. 5,400</b></p>
-        <p>Madera: Caoba<br>Dimensiones: 160 x 8 x 120 cm<br>Acabado: Barniz oscuro<br>Garantía: 5 años</p>
-           </div>
-            <hr>
- 
-           <div class="card shadow-sm p-3 mb-3">
-           <h3 class="h5">Banca de Lobby</h3>
-           <img class="img-fluid rounded mb-3" src="banca.jpg" alt="archivo" width="200">
-             <p>Categoría: Hotelería</p>
-        <p><b>Precio: L. 8,700</b></p>
-        <p>Madera: Nogal<br>Dimensiones: 150 x 45 x 45 cm<br>Acabado: Barniz semibrillante<br>Garantía: 5 años</p>
-           </div>
-           <hr>
- 
-           <div class="card shadow-sm p-3 mb-3">
-           <h3 class="h5">Mesa de Juntas en Cedro</h3>
-           <img class="img-fluid rounded mb-3" src="mesas.jpg" alt="archivo" width="200">
-              <p>Categoría: Línea Ejecutiva</p>
-        <p><b>Precio: L. 28,500</b></p>
-        <p>Madera: Cedro<br>Dimensiones: 240 x 100 x 75 cm<br>Acabado: Barniz natural<br>Garantía: 5 años</p>
-        </section>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Archivero de 4 Gavetas</h3>
+                    <img class="img-fluid rounded mb-3" src="archivo.jpg" alt="archivo" width="200">
+                    <p>Categoría: Archivo</p>
+                    <p><b>Precio: L. 7,900</b></p>
+                    <p>Madera: Pino Oocarpa<br>Dimensiones: 50 x 60 x 130 cm<br>Acabado: Laca mate<br>Garantía: 3 años</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Closet de Habitación de Hotel</h3>
+                    <img class="img-fluid rounded mb-3" src="closet.jpg" alt="archivo" width="200">
+                    <p>Categoría: Hotelería</p>
+                    <p><b>Precio: L. 11,800</b></p>
+                    <p>Madera: Cedro<br>Dimensiones: 120 x 55 x 210 cm<br>Acabado: Laca blanca<br>Garantía: 5 años</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Cabecera de Cama para Hotel</h3>
+                    <img class="img-fluid rounded mb-3" src="cama.jpg" alt="archivo" width="200">
+                    <p>Categoría: Hotelería</p>
+                    <p><b>Precio: L. 5,400</b></p>
+                    <p>Madera: Caoba<br>Dimensiones: 160 x 8 x 120 cm<br>Acabado: Barniz oscuro<br>Garantía: 5 años</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Banca de Lobby</h3>
+                    <img class="img-fluid rounded mb-3" src="banca.jpg" alt="archivo" width="200">
+                    <p>Categoría: Hotelería</p>
+                    <p><b>Precio: L. 8,700</b></p>
+                    <p>Madera: Nogal<br>Dimensiones: 150 x 45 x 45 cm<br>Acabado: Barniz semibrillante<br>Garantía: 5 años</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm p-3 mb-3">
+                    <h3 class="h5">Mesa de Juntas en Cedro</h3>
+                    <img class="img-fluid rounded mb-3" src="mesas.jpg" alt="archivo" width="200">
+                    <p>Categoría: Línea Ejecutiva</p>
+                    <p><b>Precio: L. 28,500</b></p>
+                    <p>Madera: Cedro<br>Dimensiones: 240 x 100 x 75 cm<br>Acabado: Barniz natural<br>Garantía: 5 años</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+```
         <hr>
 
     <section id="lotes" class="mb-4">
-        <h2 class="text-center mb-4">Lotes y Descuentos Especiales</h2>
+        <h2 class="text-center mb-4 text-primary">Lotes y Descuentos Especiales</h2>
         <div class="card border-warning shadow-sm p-3 mb-3">
             <p><b>DESCUENTO POR LOTE</b></p>
             <img class="img-fluid rounded mb-3" src="pupitres.jpg" alt="pupitres" width="200">
@@ -300,8 +340,8 @@
     </section>
     </main>
     <hr>
-    <footer id="contacto">
-        <h2>Contacto</h2>
+    <footer id="contacto" class="bg-dark text-white text-center p-4 mt-4">
+        <h2 class="mb-3">Contacto</h2>
         <p>Ubicacion: KM 114, Carretera CA-5, Siguatepeque</p>
         <p>Telefono: 2773-0099</p>
         <p>Sala de Ventas en Blvd Morazan, Tegucigalpa - Telefono: 2238-9089</p>
