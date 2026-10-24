@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acuícola y Procesadora de Camarón del Golfo S.A. | Choluteca, Honduras</title>
+    <!-- ESCRIBE AQUÍ TU ETIQUETA <link> DE BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <!-- =========================================================================
+      [BARRA DE NAVEGACIÓN (NAVBAR)]
+        1. A la etiqueta <nav>, agrégale las clases de Bootstrap:
+           - navbar
+           - navbar-expand-lg (para que se despliegue en PC y se colapse en celular)
+           - sticky-top (para fijarla al techo al hacer scroll)
+           - shadow-sm (sombra sutil)
+           - py-3 (espaciado vertical)
+        2. ¡ELIGE EL COLOR DE TU MARCA!:
+        3. Al primer <div> dentro de nav, agrégale: container .
+        4. Al enlace del logo <a>, agrégale: navbar-brand d-flex align-items-center fw-bold fs-4.
+        5. Al <span> que dice 'Honduras', agrégale: badge (y elige su color, ej. bg-info text-dark o bg-light).
+        6. Al <button> del menú móvil, agrégale: navbar-toggler border-0
+        7. Al <span> dentro del botón, agrégale: navbar-toggler-icon
+        8. Al <div> que contiene el menú, agrégale: collapse navbar-collapse
+        9. A la lista <ul>, agrégale: navbar-nav ms-auto align-items-lg-center
+        10. A cada enlace <a> dentro de <li>, agrégale: nav-link px-3
+        11. Al botón de cotizar pedido, agrégale: btn rounded-pill px-4 fw-bold
+            ¡Y elige su color!: ej. btn-info text-dark, o btn-primary, o btn-success.
+    ========================================================================= -->
+   
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm py-3 bg-primary">
+        <div class="container">
+            
+            <a href="#inicio" class="navbar-brand d-flex align-items-center fw-bold fs-3">
+                <i class="bi bi-water"></i>
+                <span>Acuícola del Golfo <span class="badge bg-dark text-primary  ">Honduras</span></span>
+            </a>
+            
+            <!-- Botón del menú hamburguesa para teléfonos celulares -->
+            <button class="navbar-toggler border-0" type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#menuNavegacion" 
+                    aria-controls="menuNavegacion" 
+                    aria-expanded="false" 
+                    aria-label="Abrir navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de enlaces desplegable -->
+            <div class="collapse navbar-collapse" id="menuNavegacion">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li>
+                        <a class="nav-link px-3" href="#inicio">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-3" href="#operaciones">Operaciones</a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-3" href="#catalogo">Calibres</a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-3" href="#estanques">Estanques</a>
+                    </li>
+                    <li>
+                        <a class="btn rounded-pill px-4 fw-bold btn-primary" href="#pedidos">Cotizar Pedido</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <!-- =========================================================================
+      [PORTADA HERO PRINCIPAL]
+        1. Al <header id="inicio">:
+           - Dale espaciado vertical: py-5
+           - ¡Elige el color de fondo y texto!:
+        2. Al primer <div>: agrégale container py-lg-4
+        3. Al segundo <div>: agrégale la fila flexible: row align-items-center g-5
+        4. Al <div> de la columna de texto: agrégale col-12 col-lg-7
+        5. Al <span> de ubicación: agrégale badge rounded-pill px-3 py-2 mb-3 y colores
+        6. Al titular <h1>: agrégale display-4 fw-bold mb-3
+        7. Al párrafo <p>: agrégale lead mb-4
+        8. Al <div> de los botones: agrégale d-flex flex-wrap gap-3
+        9. A los 2 botones:
+           - Primer botón: agrégale btn btn-lg rounded-pill px-4 fw-bold y el color que quieras 
+           - Segundo botón: agrégale btn btn-lg rounded-pill px-4 
+        10. Al <div> de la columna de la imagen: agrégale col-12 col-lg-5
+        11. A la tarjeta contenedora de la imagen: agrégale card shadow-lg rounded-4 overflow-hidden border-0
+        12. A la imagen <img>: agrégale img-fluid
+        13. Al cuerpo de la tarjeta: agrégale card-body p-4
+        14. Al título <h5>: agrégale card-title fw-bold mb-1
+        15. Al párrafo <p>: agrégale card-text small mb-0
+    ========================================================================= -->
+    <header class="py-5 bg-dark text-white" id="inicio">
+        <div class="container py-lg-4">
+            <div class="row align-items-center g-5">
+                
+                <!-- Columna Izquierda: Mensaje Comercial -->
+                <div class="col-12 col-lg-7">
+                    <span class="badge rounded-pill px-3 py-2 mb-3 bg-primary ">
+                        <i class="bi bi-geo-alt-fill"></i> San Lorenzo y Choluteca, Honduras
+                    </span>
+                    <h1 class="display-4 fw-bold mb-3">
+                        Camarón de Exportación con <span>Calidad Mundial</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Líderes en acuicultura sostenible en el Golfo de Fonseca. Producimos y procesamos camarón blanco <em>Litopenaeus vannamei</em> bajo estrictos estándares de bioseguridad, trazabilidad e inocuidad alimentaria internacional.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#catalogo" class="btn btn-lg rounded-pill px-4 fw-bold bg-warning">
+                            <i class="bi bi-grid-3x3-gap-fill"></i> Ver Catálogo de Calibres
+                        </a>
+                        <a href="#estanques" class="btn btn-lg rounded-pill px-4 bg-warning">
+                            <i class="bi bi-activity"></i> Telemetría de Estanques
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta Visual de la Planta Empacadora -->
+                <div class="col-12 col-lg-5">
+                    <div class="card shadow-lg rounded-4 overflow-hidden border-0">
+                        <img class="img-fluid" src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Planta Empacadora en San Lorenzo">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-1">Planta Empacadora Puerto Grande</h5>
+                            <p class="card-text small mb-0">Capacidad instalada de congelación rápida individual (IQF) de 45 toneladas métricas por turno.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =========================================================================
+      [REJILLA DE MÉTRICAS OPERATIVAS]
+        1. A la <section id="operaciones">: dale espaciado: py-5 bg-white border-bottom
+        2. Al <div> contenedor: agrégale container
+        3. Al <div> de la fila: agrégale row g-4 text-center
+        4. A CADA UNO DE LOS 4 <div> DE MÉTRICAS:
+           - Agrégales la rejilla responsiva: col-12 col-sm-6 col-lg-3
+           (Esto hace que en celular ocupe 1 columna, en tablet 2 y en PC 4 columnas)
+        5. A cada tarjeta interna: agrégale card h-100 border-0 shadow-sm rounded-4 p-3 bg-light
+        6. A cada <div> interno de texto: agrégale card-body
+        7. A los iconos <i>: agrégales fs-1 mb-2 d-block y el color que quieras (text-primary, text-success, text-info, text-warning)
+        8. A los números <h3>: agrégales fw-bold mb-1
+        9. A los subtítulos <p>: agrégales text-muted small mb-0
+    ========================================================================= -->
+    <section class="py-5 bg-dark border-bottom" id="operaciones">
+        <div class="container">
+            
+            <div class="row g-4 text-center">
+                
+                <!-- Métrica 1 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-3 bg-secondary">
+                        <div class="card-body">
+                            <i  class="bi bi-water fs-1 mb-2 d-block text-primary "></i>
+                            <h3 class="fw-bold mb-1">1,250 ha</h3>
+                            <p class="text-muted small mb-0">Estanques en Producción Activa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Métrica 2 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-3 bg-secondary">
+                        <div class="card-body">
+                            <i class="bi bi-box-seam-fill fs-1 mb-2 d-block text-primary"></i>
+                            <h3 class="fw-bold mb-1">+480 Contenedores</h3>
+                            <p class="text-muted small mb-0">Exportados Anualmente a EE.UU. y Europa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Métrica 3 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-3 bg-secondary">
+                        <div class="card-body">
+                            <i class="bi bi-shield-check fs-1 mb-2 d-block text-muted"></i>
+                            <h3 class="fw-bold mb-1">BAP 4 Estrellas</h3>
+                            <p class="text-muted small mb-0">Certificación de Mejores Prácticas Acuícolas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Métrica 4 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-3 bg-secondary">
+                        <div class="card-body">
+                            <i class="bi bi-people-fill fs-1 mb-2 d-block text-primary"></i>
+                            <h3 class="fw-bold mb-1">850 Empleos</h3>
+                            <p class="text-muted small mb-0">Directos en la Zona Sur de Honduras</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+      [CATÁLOGO DE CALIBRES DE EXPORTACIÓN]
+        1. A la <section id="catalogo">: dale espaciado: py-5 bg-light
+        2. Al contenedor: agrégale container py-lg-4
+        3. Al bloque de encabezado: agrégale text-center mb-5
+        4. Al <span> distintivo: agrégale badge rounded-pill px-3 py-2 text-uppercase fw-bold (y color a tu gusto)
+        5. Al título <h2>: agrégale display-6 fw-bold mt-2
+        6. Al párrafo <p>: agrégale text-muted
+        7. A la fila de productos: agrégale row g-4
+        8. A CADA UNO DE LOS 3 PRODUCTOS:
+           - Columna: col-12 col-md-6 col-lg-4 (3 tarjetas por fila en PC)
+           - Tarjeta: card h-100 shadow-sm border-0 rounded-4 overflow-hidden
+           - Imagen: card-img-top (puedes agregar style="height: 220px; object-fit: cover;")
+           - Cuerpo: card-body d-flex flex-column p-4
+           - Fila de insignia y tipo: d-flex justify-content-between align-items-center mb-2
+           - Insignia de calibre: badge rounded-pill px-2.5 py-1.5 (elige el color: bg-success, bg-primary, bg-info)
+           - Título <h4>: card-title fw-bold mb-2
+           - Párrafo descriptivo <p>: card-text text-secondary small flex-grow-1
+           - Pie de la tarjeta: border-top pt-3 mt-3 d-flex justify-content-between align-items-center
+           - Precio <span>: fs-5 fw-bold y el color que quieras (text-primary, text-success)
+           - Botón 'Ficha Técnica': btn btn-sm rounded-pill px-3 (ej. btn-outline-primary o btn-outline-info)
+    ========================================================================= -->
+    <section class="py-5 bg-dark" id="catalogo">
+        <div class="container py-lg-4">
+            
+            <div class="text-center mb-5">
+                <span class="badge rounded-pill px-3 py-2 text-uppercase fw-bold bg-primary">Catálogo Comercial</span>
+                <h2 class="display-6 fw-bold mt-2 text-white">Calibres de Exportación Disponibles</h2>
+                <p class="badge rounded-pill px-3 py-2 text-dark fw-bold bg-warning">Presentaciones congeladas en bloques (Block Frozen) y congelado individual rápido (IQF) con empaque al vacío.</p>
+            </div>
+
+            <!-- Fila del Catálogo -->
+            <div class="row g-4">
+
+                <!-- Producto 1: Camarón Jumbo -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <img class="card-img-top" style="height: 220px; object-fit: cover;" src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Camarón Jumbo Entero">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge rounded-pill px-2.5 py-1.5 bg-warning">Calibre 16/20</span>
+                                <span>Entero Head-On</span>
+                            </div>
+                            <h4 class="card-title fw-bold mb-2">Camarón Jumbo Head-On</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Camarón entero con cabeza seleccionado a mano. Textura firme y sabor dulce característico del Golfo de Fonseca.
+                            </p>
+                            <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span>Precio x Libra</span>
+                                    <span class="fs-5 fw-bold text-warning">Lps 4.85 </span>
+                                </div>
+                                <button class="btn btn-sm rounded-pill px-3 btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalEspecificaciones">
+                                    <i class="bi bi-info-circle"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Cola de Camarón -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <img class="card-img-top" style="height: 220px; object-fit: cover;" src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Cola de Camarón">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge rounded-pill px-2.5 py-1.5 bg-warning">Calibre 21/25</span>
+                                <span>Cola Shell-On</span>
+                            </div>
+                            <h4 class="card-title fw-bold mb-2">Cola de Camarón HLSO</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Colas descabezadas con cáscara. Excelente rendimiento para cadenas de restaurantes internacionales y supermercados.
+                            </p>
+                            <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span>Precio x Libra</span>
+                                    <span class="fs-5 fw-bold text-warning">Lps 4.20</span>
+                                </div>
+                                <button class="btn btn-sm rounded-pill px-3 btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalEspecificaciones">
+                                    <i class="bi bi-info-circle"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Pelado y Desvenado -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <img class="card-img-top" style="height: 220px; object-fit: cover;" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Camarón Pelado y Desvenado">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge rounded-pill px-2.5 py-1.5 bg-warning">Calibre 31/40</span>
+                                <span>Pelado y Desvenado</span>
+                            </div>
+                            <h4 class="card-title fw-bold mb-2">Camarón P&D Tail-On</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Camarón listo para cocinar. Congelado individual rápido IQF para preservar nutrientes y textura sin aditivos.
+                            </p>
+                            <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span>Precio x Libra</span>
+                                    <span class="fs-5 fw-bold text-warning">Lps 5.40</span>
+                                </div>
+                                <button class="btn btn-sm rounded-pill px-3 btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalEspecificaciones">
+                                    <i class="bi bi-info-circle"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+      [TABLA DE TELEMETRÍA DE ESTANQUES]
+        1. A la <section id="estanques">: agrégale py-5 bg-white border-top border-bottom
+        2. Al contenedor: container py-lg-4
+        3. Al <div> que envuelve directamente a la tabla:
+           table-responsive shadow-sm rounded-4 border
+        4. A la etiqueta <table>:
+           table table-hover table-striped align-middle mb-0
+        5. Al <thead>:
+           Elige el encabezado: ej. table-dark, o table-primary
+        6. A las insignias de estado <span> en la última columna:
+           badge rounded-pill px-3 py-1.5 (con bg-success o bg-warning)
+    ========================================================================= -->
+    <section class="py-5 bg-dark border-top border-bottom" id="estanques">
+        <div class="container py-lg-4">
+            
+            <div>
+                <div>
+                    <span class="text-white">Biotecnología en Vivo</span>
+                    <h2 class="text-white">Monitoreo de Calidad de Agua en Estanques</h2>
+                    <p class="text-white">Telemetría directa desde la Finca Acuícola San Bernardo (Choluteca).</p>
+                </div>
+            </div>
+
+            <!-- Envoltorio Responsivo de la Tabla -->
+            <div class="table-responsive shadow-sm rounded-4 border">
+                <table class=" table table-hover table-striped align-middle mb-0">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Estanque ID</th>
+                            <th>Área (ha)</th>
+                            <th>Salinidad (ppt)</th>
+                            <th>Oxígeno Disuelto</th>
+                            <th>Temperatura</th>
+                            <th>Estado Biológico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EST-01 San Bernardo</td>
+                            <td>12.5 ha</td>
+                            <td>28.4 ppt</td>
+                            <td>6.8 mg/L</td>
+                            <td>29.1 °C</td>
+                            <td><span class="badge rounded-pill px-3 py-1.5 bg-warning">Óptimo para Cosecha</span></td>
+                        </tr>
+                        <tr>
+                            <td>EST-04 Los Mangles</td>
+                            <td>15.0 ha</td>
+                            <td>29.1 ppt</td>
+                            <td>6.4 mg/L</td>
+                            <td>28.8 °C</td>
+                            <td><span class="badge rounded-pill px-3 py-1.5 bg-warning">Óptimo para Cosecha</span></td>
+                        </tr>
+                        <tr>
+                            <td>EST-09 Cedeño Sur</td>
+                            <td>10.0 ha</td>
+                            <td>31.0 ppt</td>
+                            <td>5.2 mg/L</td>
+                            <td>30.2 °C</td>
+                            <td><span class="badge rounded-pill px-3 py-1.5 bg-warning">En Aireación Activa</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+      [FORMULARIO DE PEDIDOS MAYORISTAS]
+        1. A la <section id="pedidos">: agrégale py-5 bg-light
+        2. Al contenedor: container py-lg-4
+        3. A la fila que centra la tarjeta: row justify-content-center
+        4. A la columna: col-12 col-lg-8
+        5. A la tarjeta del formulario: card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white
+        6. A la fila interna del formulario: row g-3
+        7. A cada envoltorio de campo: form-floating
+        8. A cada campo <input>: form-control
+        9. A cada campo <select>: form-select
+        10. Al botón de envío: btn btn-lg rounded-pill fw-bold w-100 shadow
+            ¡Y elige el color que prefieras!: ej. btn-info, btn-primary, btn-success.
+    ========================================================================= -->
+    <section class="py-5 bg-dark" id="pedidos">
+        <div class="container py-lg-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-secondary">
+                        
+                        <div>
+                            <span>Comercio Internacional</span>
+                            <h2>Solicitar Cotización de Contenedor</h2>
+                            <p>Despachos marítimos refrigerados desde Puerto Henecán y Puerto Cortés.</p>
+                        </div>
+
+                        <!-- Formulario -->
+                        <form action="#pedidos" method="POST">
+                            <div class="row g-3">
+                                
+                                <!-- Campo 1: Razón Social -->
+                                <div class="form-floating">
+                                    <div>
+                                        <input class="form-control" type="text" id="empresa" placeholder="Empresa Importadora" required>
+                                        <label for="empresa">Empresa / Razón Social *</label>
+                                    </div>
+                                </div>
+
+                                <!-- Campo 2: Correo -->
+                                <div class="form-floating">
+                                    <div>
+                                        <input class="form-control" type="email" id="correo" placeholder="compras@empresa.com" required>
+                                        <label for="correo">Correo Electrónico Corporativo *</label>
+                                    </div>
+                                </div>
+
+                                <!-- Campo 3: Calibre -->
+                                <div class="form-floating">
+                                    <div>
+                                        <select class="form-select" id="calibre" required>
+                                            <option value="" disabled selected>Seleccione calibre...</option>
+                                            <option value="16/20">Camarón Jumbo Head-On (16/20)</option>
+                                            <option value="21/25">Cola Shell-On HLSO (21/25)</option>
+                                            <option value="31/40">Pelado y Desvenado P&D (31/40)</option>
+                                        </select>
+                                        <label for="calibre">Calibre Requerido *</label>
+                                    </div>
+                                </div>
+
+                                <!-- Campo 4: Volumen -->
+                                <div class="form-floating">
+                                    <div>
+                                        <select class="form-select" id="volumen" required>
+                                            <option value="" disabled selected>Seleccione volumen...</option>
+                                            <option value="1">1 Contenedor Refrigerado (44,000 lbs)</option>
+                                            <option value="2-5">2 a 5 Contenedores (Lote Comercial)</option>
+                                            <option value="6+">6+ Contenedores (Contrato Anual)</option>
+                                        </select>
+                                        <label for="volumen">Volumen del Pedido *</label>
+                                    </div>
+                                </div>
+
+                                <!-- Campo 5: Puerto Destino -->
+                                <div class="form-floating">
+                                    <div>
+                                        <input class="form-control" type="text" id="puerto" placeholder="Puerto Destino" required>
+                                        <label for="puerto">Puerto Marítimo de Destino (Ej. Miami, Valencia, Rotterdam) *</label>
+                                    </div>
+                                </div>
+
+                                <!-- Botón de Envío -->
+                                <div>
+                                    <button class="btn btn-lg rounded-pill fw-bold w-100 shadow btn-dark" type="submit">
+                                        <i class="bi bi-send-fill"></i> Enviar Solicitud de Cotización Marítima
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+      [VENTANA MODAL]
+        1. Al <div id="modalEspecificaciones">: agrégale modal fade
+        2. Al <div> hijo: agrégale modal-dialog modal-dialog-centered
+        3. Al contenedor de contenido: agrégale modal-content rounded-4 border-0 shadow-lg
+        4. Al encabezado modal: modal-header (y el color que gustes, ej. bg-dark text-white)
+        5. Al título del modal: modal-title fw-bold
+        6. Al botón de cerrar: btn-close (si el fondo es oscuro, agrega btn-close-white)
+        7. Al cuerpo del modal: modal-body p-4
+        8. A la lista <ul>: list-group list-group-flush small mb-3
+        9. A los <li>: list-group-item d-flex justify-content-between
+        10. Al pie del modal: modal-footer bg-light p-3
+    ========================================================================= -->
+    <div class="modal fade" id="modalEspecificaciones" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title fw-bold" id="modalLabel"><i class="bi bi-file-earmark-medical"></i> Ficha Técnica Oficial</h5>
+                    <button btn-close btn-close-white type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6>Estándar de Calidad: Litopenaeus vannamei</h6>
+                    <ul class="list-group list-group-flush small mb-3">
+                        <li class="list-group-item d-flex justify-content-between"><span>Método de Congelación:</span> <strong>IQF / Placas de Contacto</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span>Glaseado Técnico:</span> <strong>5% a 10% según especificación</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span>Vida Útil:</span> <strong>24 Meses a -18°C</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span>Certificaciones:</span> <strong>HACCP, SENASA Honduras, BAP 4★</strong></li>
+                    </ul>
+                </div>
+                <div class="modal-footer bg-light p-3">
+                    <button type="button" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="#pedidos" data-bs-dismiss="modal">Cotizar Este Calibre</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+      [PIE DE PÁGINA]
+        1. Al <footer>: agrégale py-5 mt-auto border-top y el color que prefieras:
+           (ej. bg-dark text-light, o bg-light text-dark)
+        2. Al contenedor: container
+        3. A la fila: row g-4
+        4. A cada una de las 3 columnas: col-12 col-md-4
+    ========================================================================= -->
+    <footer class="py-5 mt-auto border-top bg-secondary text-light">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-12 col-md-4">
+                    <h5><i class="bi bi-water"></i> Acuícola del Golfo S.A.</h5>
+                    <p>
+                        Pioneros en acuicultura de camarón en la zona sur de Honduras (San Lorenzo, Valle y Choluteca). Comprometidos con el desarrollo económico y el empleo regional.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h6>Instalaciones Industriales</h6>
+                    <ul>
+                        <li><i class="bi bi-geo-alt-fill"></i> Planta de Empaque: Carretera a San Lorenzo, Km 8.</li>
+                        <li><i class="bi bi-telephone-fill"></i> PBX Choluteca: +(504) 2782-0199</li>
+                        <li><i class="bi bi-envelope-fill"></i> exportaciones@acuicoladelgolfo.hn</li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h6>Contexto Académico UNAH</h6>
+                    <p>
+                        <strong>ISC-305 Programación Web | III PAC 2026</strong><br>
+                        Laboratorio Práctico 
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="text-center mb-5">
+                &copy; 2026 Acuícola y Procesadora de Camarón del Golfo S.A. — Choluteca, Honduras.
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+      [VINCULAR EL SCRIPT OFICIAL DE BOOTSTRAP]
+        Para que el menú móvil y las ventanas modales funcionen al hacer clic,
+        debes agregar el script de Bootstrap aquí antes de cerrar el <body>:
+        
+    ========================================================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
